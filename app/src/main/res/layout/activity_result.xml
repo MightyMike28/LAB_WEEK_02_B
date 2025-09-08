@@ -6,14 +6,27 @@
     android:id="@+id/background_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".ResultActivity"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/color_code_result_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/back_button"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_button"
+        android:backgroundTint="@android:color/holo_purple"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
-        style="@style/text_display"
-        android:textColor="@android:color/white"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

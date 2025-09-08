@@ -22,14 +22,18 @@ class MainActivity : AppCompatActivity() {
         submitButton.setOnClickListener {
             val colorCode = inputField.text.toString()
 
-            if (colorCode.isEmpty()) {
-                Toast.makeText(this, getString(R.string.color_code_input_empty), Toast.LENGTH_LONG).show()
-            } else if (colorCode.length < 6) {
-                Toast.makeText(this, getString(R.string.color_code_input_wrong_length), Toast.LENGTH_LONG).show()
-            } else {
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra(COLOR_KEY, colorCode)
-                startActivity(intent)
+            when {
+                colorCode.isEmpty() -> {
+                    Toast.makeText(this, getString(R.string.color_code_input_empty), Toast.LENGTH_LONG).show()
+                }
+                colorCode.length < 6 -> {
+                    Toast.makeText(this, getString(R.string.color_code_input_wrong_length), Toast.LENGTH_LONG).show()
+                }
+                else -> {
+                    val intent = Intent(this, ResultActivity::class.java)
+                    intent.putExtra(COLOR_KEY, colorCode)
+                    startActivity(intent)
+                }
             }
         }
     }
